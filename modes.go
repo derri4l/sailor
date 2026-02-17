@@ -1,1 +1,1 @@
-package sailor
+package main
