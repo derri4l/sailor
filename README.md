@@ -7,8 +7,7 @@ This project uses Python to create a RAG tool that parses notes. This was only i
 - Stores the vectors using FAISS.
 - When we query now, the program retrieves the top 3 relevant chunks.
 - Finally those top chunks get passed to an LLM to generate the final answer.
-
-## Diagram
+  
 <img width="844" height="122" alt="Screenshot 2026-03-09 at 1 51 20 PM" src="https://github.com/user-attachments/assets/b95c431c-cc65-4ca8-8ee1-b95ec316bac6" />
 
 
