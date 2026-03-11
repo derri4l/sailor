@@ -40,10 +40,49 @@ def chunk_text(text:str, chunk_size: int = 300, overlap: int = 80) -> list[str]:
         start += step
     return chunks
 
+def embed_chunks(chunks: list[str]) -> list[list[float]]:
+    vectors = []
+    for chunk in chunks:
+        response = client.embeddings.create(
+            model = "text-embedding-3-small",
+            input = chunk
+        )
+        vectors.append(response.data[0].embedding)
+    return vectors
+
+# store returned vectors in FAISS index
+def store_in_faiss(vectors: list[list[float]]):
+    dimension = len(vectors[0])
+    index = faiss.IndexFlatL2(dimension)
+    index.add(np.array(vectors, dtype=np.float32))
+    return index
+
+def build_context(chunks: list[str]) -> str:
+    return "\n\n".join(chunks)
+
+# LLM prompt
+def build_prompt(context: str, question: str) -> str:
+    return f"""
+    Only answer questions using the provided notes.
+
+    Context:
+    {context}
+
+    Question:
+    {question}
+"""
+def generate_answer(prompt: str) -> str:
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response.choices[0].message.content
+
 if __name__ == "__main__":
     files = list_notes()
     selected = select_note(files)
     text = load_note(os.path.join(knowledge_dir, selected))
     chunks = chunk_text(text)
     print(f"Chunks: {len(chunks)}")
+    print(f"chunk1: {chunks[0][:100]}")
 
