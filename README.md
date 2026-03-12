@@ -23,6 +23,8 @@ Pick a document/note from the knowledge folder. Then the pipline begins:
 ```python3 main.py```
 
 ## Preview
+In this preview i ran the tool against a Victor-Von-Doom wiki which you can find in the knowledge folder. 
+
 https://github.com/user-attachments/assets/7ec03aa9-4216-4ebd-807c-d4e55c1a2eb8
 
 Q1. What is this note about?
