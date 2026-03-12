@@ -26,8 +26,11 @@ Pick a document/note from the knowledge folder. Then the pipline begins:
 https://github.com/user-attachments/assets/7ec03aa9-4216-4ebd-807c-d4e55c1a2eb8
 
 Q1. What is this note about?
+
 Q2. What was Doom's superpower?
+
 Q3. When did Doom get laser vision?
+
 Q4. Who did Doom have a soft spot for?
 
 
