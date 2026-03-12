@@ -1,8 +1,8 @@
 # sailor
-This project uses Python to create a RAG tool that lets you parse notes and query notes. This was only intended for study purposes.
+This project uses Python to create a RAG tool that lets you parse large documents and query them as well. This was only intended for study purposes.
 
 ## How does it work
-Pick a note from the knowledge folder. Then the pipline begins:
+Pick a document/note from the knowledge folder. Then the pipline begins:
 1. Chunking - The note gets split into overlapping word chunks.
 2. Embeddings - Each chunk is sent to OpenAI's ```text-embedding-3-small``` model and converted into a vector.
 3. FAISS Index - All vectors are stored in a FAISS flat index in memory.
@@ -21,3 +21,13 @@ Pick a note from the knowledge folder. Then the pipline begins:
 
 3. Run with
 ```python3 main.py```
+
+## Preview
+https://github.com/user-attachments/assets/7ec03aa9-4216-4ebd-807c-d4e55c1a2eb8
+
+Q1. What is this note about?
+Q2. What was Doom's superpower?
+Q3. When did Doom get laser vision?
+Q4. Who did Doom have a soft spot for?
+
+
