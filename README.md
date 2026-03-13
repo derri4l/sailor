@@ -1,16 +1,13 @@
 # Sailor
-This project uses Python to create a RAG tool that lets you parse large documents and query them as well. This was only intended for study purposes.
+This project uses Python to create a RAG tool that lets you parse large documents and query them as well. This is only intended for study purposes.
 
 ## How does it work
 Pick a document/note from the knowledge folder. Then the pipline begins:
-1. Chunking - The note gets split into overlapping word chunks.
-2. Embeddings - Each chunk is sent to OpenAI's ```text-embedding-3-small``` model and converted into a vector.
-3. FAISS Index - All vectors are stored in a FAISS flat index in memory.
-4. Retrieval - When you ask a question, it gets embedded the same way. FAISS finds the top 3 closest chunks by vector distance.
-5. Generation - The top chunks are passed to gpt4o mini as context. The model answers using only what's in the retrieved chunks.
-<img width="1688" height="244" alt="image" src="https://github.com/user-attachments/assets/cdece446-c917-48d0-929c-0fe5f65c8b03" />
-
-
+1. **Chunking** -  The note gets split into overlapping word chunks.
+2. **Embeddings** -  Each chunk is sent to OpenAI's ```text-embedding-3-small``` model and converted into a vector.
+3. **FAISS Index** -  All vectors are stored in a FAISS flat index in memory.
+4. **Retrieval** -  When you ask a question, it gets embedded the same way. FAISS finds the top 3 closest chunks by vector distance.
+5. **Generation** -  The top chunks are passed to an AI model as context. The model answers using only what's in the retrieved chunks.
 
 ## How to use
 1. install dependencies  
@@ -28,14 +25,18 @@ In this preview i ran the tool against a Victor-Von-Doom wiki which you can find
 https://github.com/user-attachments/assets/7ec03aa9-4216-4ebd-807c-d4e55c1a2eb8
 
 Q1. What is this note about?
-(I asked this to see if the program could actaully read the context provided)
+- (I asked this to see if the program could actaully read the context provided)
 
 Q2. What was Doom's superpower?
-(A general and basic question, which is provided in the notes)
+- (A general and basic question, which is provided in the notes)
 
 Q3. When did Doom get laser vision?
-(Intentionally asked something that never happened to see if it would answer out of context)
+- (Intentionally asked something that never happened to see if it would answer out of context)
 
 Q4. Who did Doom have a soft spot for?
-(A slightly deeper question that requires pulling meaning from context rather than a direct fact)
+- (A slightly deeper question that requires pulling meaning from context rather than a direct fact)
 
+## Next Steps
+- Auto chunk sizing
+- implement vector store/database
+- TUI 
