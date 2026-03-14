@@ -1,5 +1,5 @@
 # Sailor
-This project uses Python to create a RAG tool that lets you parse large documents and query them as well. This is only intended for study purposes.
+This project uses Python to create a RAG tool (Retrieval-Augmented Generation), it lets you load documents or notes, index them in memory, and ask questions. This is only intended for study purposes.
 
 ## How does it work
 Pick a document/note from the knowledge folder. Then the pipline begins:
@@ -39,4 +39,5 @@ Q4. Who did Doom have a soft spot for?
 ## Next Steps
 - Auto chunk sizing
 - implement vector store/database
+- switching to local llm
 - TUI 
